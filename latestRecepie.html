@@ -19,7 +19,7 @@
 
 <script type = 'module'>
     import navbar from './components/navbar.js'
-    import {getData,append} from './scripts/script.js';
+    import {getData,rpOfTheDay} from './scripts/script.js';
 
     let navbar_div = document.getElementById('navbar');
     navbar_div.innerHTML = navbar();
@@ -27,6 +27,6 @@
     let res = getData(`https://www.themealdb.com/api/json/v1/1/random.php`);
     res.then((res) => {
         console.log( res );
-        append(res.meals,'latestRecepie');
+        rpOfTheDay(res.meals,'latestRecepie');
     });
 </script>

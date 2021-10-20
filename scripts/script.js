@@ -66,4 +66,42 @@ function append( mealList,container) {
     })
 }
 
-export {debounce,getData,append};
+function rpOfTheDay(mealList,container) {
+    let cont = document.getElementById(`${container}`);
+
+    mealList.forEach((meal) => {
+        console.log( meal );
+        let div = document.createElement('div');
+
+        let img = document.createElement('img');
+        img.src = meal.strMealThumb;
+
+        let mealName = document.createElement('p');
+        mealName.innerHTML = `<b>${meal.strMeal}`;
+
+        let category  = document.createElement('p');
+        category.innerHTML = `<b>Category: </b?\> ${meal.strCategory}`;
+
+        let area  = document.createElement('p');
+        area.innerHTML = `<b>Area: </b> ${meal.strArea}`;
+
+        let inst  = document.createElement('p');
+        inst.innerHTML = `${meal.strInstructions}`;
+
+        let source = document.createElement('a');
+        source.innerHTML = `<b>Source: <b> ${meal.strSource}<br/>`;
+        source.href = meal.strSource;
+
+        let yt  = document.createElement('a');
+        yt.innerHTML = `<b>Youtube: </b> ${meal.strYoutube}`;
+        yt.href = meal.strYoutube;
+
+        let tags  = document.createElement('p');
+        tags.innerText= meal.strTags;
+
+        div.append( img, mealName, category, area, inst, source, yt, tags );
+        cont.append( div );
+    })
+}
+
+export {debounce,getData,append,rpOfTheDay};
